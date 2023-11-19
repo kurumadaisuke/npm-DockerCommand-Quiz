@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "problem": "Docker コンテナを起動するコマンドは？",
+    "choices": ["docker run", "docker up", "docker start"],
+    "answer": "docker run",
+    "explanation": "\n```\ndocker run [OPTIONS] IMAGE [COMMAND] [ARG...]\n```\nOPTIONS には、イメージの指定、ポートマッピング、環境変数の設定、ボリュームのマウント、ネットワークの接続など、さまざまなオプションを指定できます。\nIMAGE には、起動するコンテナのイメージを指定します。\nCOMMAND には、コンテナの起動時に実行するコマンドを指定します。\nARG には、COMMAND に渡す引数を指定します。"
+  },
+  {
+    "id": 2,
+    "problem": "Docker コンテナを停止するコマンドは？",
+    "choices": ["docker stop", "docker kill", "docker pause"],
+    "answer": "docker stop",
+    "explanation": "\n```\ndocker stop CONTAINER\n```\nCONTAINER には、停止するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 3,
+    "problem": "Docker コンテナを削除するコマンドは？",
+    "choices": ["docker rm", "docker stop", "docker kill"],
+    "answer": "docker rm",
+    "explanation": "\n```\ndocker rm CONTAINER\n```\nCONTAINER には、削除するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 4,
+    "problem": "ローカルに保存されているイメージの一覧を表示するコマンドは？",
+    "choices": ["docker images", "docker ps", "docker ls"],
+    "answer": "docker images",
+    "explanation": "\n```\ndocker images\n```"
+  },
+  {
+    "id": 5,
+    "problem": "実行中のコンテナの一覧を表示するコマンドは？",
+    "choices": ["docker exec", "docker ps", "docker images"],
+    "answer": "docker ps",
+    "explanation": "\n```\ndocker ps\n```"
+  }
+]
