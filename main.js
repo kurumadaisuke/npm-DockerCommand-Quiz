@@ -1,7 +1,7 @@
 import enquirer from "enquirer";
 import { readFile } from "fs/promises";
 
-const questions = JSON.parse(await readFile("./questions.json"));
+const dockerQuestions = JSON.parse(await readFile("./questions.json"));
 const problemCountChoices = () => {
   return [
     { name: "5問", message: "5問出題", value: 5 },
@@ -11,17 +11,22 @@ const problemCountChoices = () => {
   ];
 };
 
-const quiz = () => {
-  for (const question of questions) {
-    console.log(`問題：${question.problem}`);
-    console.log(`選択肢：${question.choices}`);
-    console.log(`答え：${question.answer}`);
-    console.log(`解説：${question.explanation}`);
-    console.log("");
+const dockerQuiz = async (dockerQuestions) => {
+  for await (const dockerQuestion of dockerQuestions) {
+    await (async () => {
+      const question = {
+        type: "select",
+        name: "problem_count",
+        message: dockerQuestion.problem,
+        choices: dockerQuestion.choices,
+      };
+      const answer = await enquirer.prompt(question);
+      console.log(dockerQuestion.answer);
+    })();
   }
 };
 
-(async () => {
+const numberOfProblems = async () => {
   const question = {
     type: "select",
     name: "problem_count",
@@ -32,7 +37,21 @@ const quiz = () => {
     },
   };
   const answer = await enquirer.prompt(question);
-  console.log(`${answer.problem_count}問に挑戦`);
+  return answer.problem_count;
+};
 
-  await quiz();
-})();
+const dockerQuizApp = async function () {
+  try {
+    const problem_count = await numberOfProblems();
+    console.log(`${problem_count}問に挑戦!!`);
+    await dockerQuiz(dockerQuestions);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    } else {
+      console.error(new Error(error));
+    }
+  }
+};
+
+dockerQuizApp();
