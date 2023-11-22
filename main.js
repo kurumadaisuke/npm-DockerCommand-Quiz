@@ -1,8 +1,11 @@
+import chalk from "chalk";
 import enquirer from "enquirer";
 import { readFile } from "fs/promises";
-import chalk from "chalk";
 
 const dockerQuestions = JSON.parse(await readFile("./questions.json"));
+const questionIds = [];
+const maxQuestions = 20;
+
 const questionNumberChoices = () => {
   return [
     { name: "5問", message: "5問出題", value: 5 },
@@ -12,7 +15,17 @@ const questionNumberChoices = () => {
   ];
 };
 
-const arrayShuffle = (array) => {
+const randomQuestion = (questionsNumber) => {
+  while (questionIds.length < questionsNumber) {
+    const randomNum = Math.floor(Math.random() * maxQuestions);
+    if (questionIds.indexOf(randomNum) === -1) {
+      questionIds.push(randomNum);
+    }
+  }
+  return questionIds;
+};
+
+const choiceShuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -20,17 +33,26 @@ const arrayShuffle = (array) => {
   return array;
 };
 
-const dockerQuiz = async (dockerQuestions, questionsNumber) => {
+const idSearch = (ids) => {
+  const arr = [];
+  ids.forEach(function (id) {
+    const Index = dockerQuestions.findIndex((data) => data.id === id);
+    arr.push(dockerQuestions[Index]);
+  });
+  return arr;
+};
+
+const dockerQuiz = async (ids, questionsNumber) => {
   let correctAnswer = 0;
   let breakCount = 0;
-  for await (const dockerQuestion of dockerQuestions) {
+  for await (const dockerQuestion of idSearch(ids)) {
     if (questionsNumber <= breakCount) break;
     await (async () => {
       const question = {
         type: "select",
         name: "question",
         message: dockerQuestion.problem,
-        choices: arrayShuffle(dockerQuestion.choices),
+        choices: choiceShuffle(dockerQuestion.choices),
       };
       const answer = await enquirer.prompt(question);
       if (answer.question === dockerQuestion.answer) {
@@ -70,7 +92,8 @@ const dockerQuizApp = async function () {
   try {
     const questionsNumber = await numberOfQuestions();
     await console.log(`${questionsNumber}問に挑戦!!`);
-    const correct = await dockerQuiz(dockerQuestions, questionsNumber);
+    const ids = await randomQuestion(questionsNumber);
+    const correct = await dockerQuiz(ids, questionsNumber);
     console.log(`結果は${correct}/${questionsNumber}正解しました。`);
   } catch (error) {
     if (error instanceof Error) {
