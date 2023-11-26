@@ -1,8 +1,11 @@
 {
   "name": "docker_quiz_app",
   "description": "This is an app that quizzes you on Docker commands. We have prepared a Docker command quiz with a total of 20 questions.",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "main": "main.js",
+  "bin": {
+    "docker_quiz_start": "./main.js"
+  },
   "scripts": {
     "fix": "prettier --write . && eslint --fix .",
     "lint": "prettier --check . && eslint ."
