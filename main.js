@@ -1,19 +1,12 @@
 import chalk from "chalk";
-import enquirer from "enquirer";
+import Question from "./question.js";
+import Quiz from "./quiz.js";
 import { readFile } from "fs/promises";
 
-const dockerQuestions = JSON.parse(await readFile("./questions.json"));
+const questionslist = JSON.parse(await readFile("./questions.json"));
+const questions = [];
 const questionIds = [];
 const maxQuestions = 20;
-
-const questionNumberChoices = () => {
-  return [
-    { name: "5問", message: "5問出題", value: 5 },
-    { name: "10問", message: "10問出題", value: 10 },
-    { name: "15問", message: "15問出題", value: 15 },
-    { name: "20問", message: "20問出題", value: 20 },
-  ];
-};
 
 const randomQuestion = (questionsNumber) => {
   while (questionIds.length < questionsNumber) {
@@ -36,8 +29,8 @@ const choiceShuffle = (array) => {
 const idSearch = (ids) => {
   const arr = [];
   ids.forEach(function (id) {
-    const Index = dockerQuestions.findIndex((data) => data.id === id);
-    arr.push(dockerQuestions[Index]);
+    const Index = questions.findIndex((data) => data.id === id);
+    arr.push(questions[Index]);
   });
   return arr;
 };
@@ -74,27 +67,17 @@ const dockerQuiz = async (ids, questionsNumber) => {
   return correctAnswer;
 };
 
-const numberOfQuestions = async () => {
-  const question = {
-    type: "select",
-    name: "questionNumber",
-    message: "Dockerコマンドクイズ!! 出題問題数を選択してください",
-    choices: questionNumberChoices,
-    result() {
-      return this.focused.value;
-    },
-  };
-  const answer = await enquirer.prompt(question);
-  return answer.questionNumber;
-};
-
-const dockerQuizApp = async function () {
+const main = async function () {
   try {
-    const questionsNumber = await numberOfQuestions();
-    await console.log(`${questionsNumber}問に挑戦!!`);
-    const ids = await randomQuestion(questionsNumber);
-    const correct = await dockerQuiz(ids, questionsNumber);
-    console.log(`結果は${correct}/${questionsNumber}正解しました。`);
+    await questionslist.forEach((question) => {
+      questions.push(new Question(question));
+    });
+    const quiz = await new Quiz();
+    await quiz.getQuestionsNumber();
+    // const questionsNumber = await numberOfQuestions();
+    // const ids = await randomQuestion(questionsNumber);
+    // const correct = await dockerQuiz(ids, questionsNumber);
+    // console.log(`結果は${correct}/${questionsNumber}正解しました。`);
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -104,4 +87,4 @@ const dockerQuizApp = async function () {
   }
 };
 
-dockerQuizApp();
+main();
