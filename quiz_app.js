@@ -90,20 +90,20 @@ class QuizApp {
   };
 
   idSearch = (ids) => {
-    const arr = [];
+    const tmpArray = [];
     ids.forEach(function (id) {
       const Index = questions.findIndex((data) => data.id === id);
-      arr.push(questions[Index]);
+      tmpArray.push(questions[Index]);
     });
-    return arr;
+    return tmpArray;
   };
 
-  choiceShuffle = (array) => {
-    for (let i = array.length - 1; i > 0; i--) {
+  choiceShuffle = (choices) => {
+    for (let i = choices.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [choices[i], choices[j]] = [choices[j], choices[i]];
     }
-    return array;
+    return choices;
   };
 
   score = async (score) => {
