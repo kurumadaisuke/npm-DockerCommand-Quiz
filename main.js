@@ -4,7 +4,10 @@ const main = async function () {
   try {
     const quiz = await new QuizApp();
     await quiz.getQuestionsNumber();
-    const score = await quiz.dockerQuizStart(quiz.questionIds, quiz.numberOfQuestion);
+    const score = await quiz.dockerQuizStart(
+      quiz.questionIds,
+      quiz.numberOfQuestion,
+    );
     await quiz.score(score);
   } catch (error) {
     if (error instanceof Error) {
