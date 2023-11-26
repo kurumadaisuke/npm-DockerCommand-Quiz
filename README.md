@@ -6,7 +6,7 @@ We have prepared a Docker command quiz with a total of 20 questions.
 # install
 
 ```
-npm i XXXXXXXXXXXX
+npm i @kurumadaisuke/docker_quiz
 ```
 
 # supported language
@@ -65,7 +65,7 @@ I hope this helps you remember Docker commands.
 # インストール
 
 ```
-npm i XXXXXXXXXXXX
+npm i @kurumadaisuke/docker_quiz
 ```
 
 # サポートされる言語

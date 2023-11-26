@@ -1,5 +1,5 @@
 {
-  "name": "@kurumadaisuke/docker_quiz",
+  "name": "docker_quiz_app",
   "description": "This is an app that quizzes you on Docker commands. We have prepared a Docker command quiz with a total of 20 questions.",
   "version": "1.0.0",
   "main": "main.js",
