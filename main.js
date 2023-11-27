@@ -1,12 +1,14 @@
+#!/usr/bin/env node
+
 import QuizApp from "./quiz_app.js";
 
 const main = async function () {
   try {
     const quiz = await new QuizApp();
-    await quiz.getQuestionsNumber();
+    const numberOfQuestion = await quiz.getQuestionsNumber();
     const score = await quiz.dockerQuizStart(
       quiz.questionIds,
-      quiz.numberOfQuestion,
+      numberOfQuestion
     );
     await quiz.score(score);
   } catch (error) {

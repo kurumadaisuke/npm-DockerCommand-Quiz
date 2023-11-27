@@ -18,7 +18,7 @@ npm install -g docker_quiz_app
 Execute the following command to start the Docker command quiz
 
 ```
-docker_quiz_start
+docker_quiz_app
 ```
 
 There are 20 questions in the Docker command quiz, and you select the number of questions you want to ask first.
@@ -79,7 +79,7 @@ npm install -g docker_quiz_app
 以下のコマンドを実行して Docker コマンドのクイズを開始します。
 
 ```
-docker_quiz_start
+docker_quiz_app
 ```
 
 Docker コマンドクイズには合計 20 の質問があり、最初に出題する問題数を選択します。
