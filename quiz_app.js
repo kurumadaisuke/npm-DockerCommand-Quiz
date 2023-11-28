@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const questionslist = JSON.parse(
-  await readFile(`${__dirname}//questions.json`)
+  await readFile(`${__dirname}//questions.json`),
 );
 const questions = [];
 

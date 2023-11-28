@@ -8,7 +8,7 @@ const main = async function () {
     const numberOfQuestion = await quiz.getQuestionsNumber();
     const score = await quiz.dockerQuizStart(
       quiz.questionIds,
-      numberOfQuestion
+      numberOfQuestion,
     );
     await quiz.score(score);
   } catch (error) {
