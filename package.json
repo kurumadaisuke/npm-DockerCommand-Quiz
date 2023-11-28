@@ -1,7 +1,7 @@
 {
   "name": "docker_quiz_app",
   "description": "This is an app that quizzes you on Docker commands. We have prepared a Docker command quiz with a total of 20 questions.",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "main.js",
   "bin": {
     "docker_quiz_app": "./main.js"

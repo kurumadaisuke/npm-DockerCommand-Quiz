@@ -2,7 +2,14 @@ import chalk from "chalk";
 import Question from "./question.js";
 import enquirer from "enquirer";
 import { readFile } from "fs/promises";
-const questionslist = JSON.parse(await readFile("./questions.json"));
+import * as path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const questionslist = JSON.parse(
+  await readFile(`${__dirname}//questions.json`)
+);
 const questions = [];
 
 class QuizApp {
