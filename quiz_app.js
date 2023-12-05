@@ -67,7 +67,7 @@ class QuizApp {
   dockerQuizStart = async (ids, numberOfQuestion) => {
     let correctAnswer = 0;
     let breakCount = 0;
-    for await (const dockerQuestion of this.idSearch(ids)) {
+    for await (const dockerQuestion of this.generateQuestionIDs(ids)) {
       if (numberOfQuestion <= breakCount) break;
       await (async () => {
         const question = {
@@ -96,7 +96,7 @@ class QuizApp {
     return correctAnswer;
   };
 
-  idSearch = (ids) => {
+  generateQuestionIDs = (ids) => {
     const tmpArray = [];
     ids.forEach(function (id) {
       const Index = questions.findIndex((data) => data.id === id);
