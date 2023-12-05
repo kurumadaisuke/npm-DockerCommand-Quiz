@@ -67,7 +67,7 @@ class QuizApp {
   dockerQuizStart = async (ids, numberOfQuestion) => {
     let correctAnswer = 0;
     let breakCount = 0;
-    for await (const dockerQuestion of this.generateQuestionIDs(ids)) {
+    for await (const dockerQuestion of this.generateQuestionIds(ids)) {
       if (numberOfQuestion <= breakCount) break;
       await (async () => {
         const question = {
@@ -96,13 +96,13 @@ class QuizApp {
     return correctAnswer;
   };
 
-  generateQuestionIDs = (ids) => {
-    const tmpArray = [];
+  generateQuestionIds = (ids) => {
+    const questionIds = [];
     ids.forEach(function (id) {
       const Index = questions.findIndex((data) => data.id === id);
-      tmpArray.push(questions[Index]);
+      questionIds.push(questions[Index]);
     });
-    return tmpArray;
+    return questionIds;
   };
 
   choiceShuffle = (choices) => {
