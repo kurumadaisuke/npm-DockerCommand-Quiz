@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const questionslist = JSON.parse(
-  await readFile(`${__dirname}//questions.json`)
+  await readFile(`${__dirname}//questions.json`),
 );
 const questions = [];
 
@@ -81,7 +81,7 @@ class QuizApp {
         const answer = await enquirer.prompt(question);
         correctAnswer += await this.questions[dockerQuestion.id].isCorrect(
           answer.question,
-          dockerQuestion
+          dockerQuestion,
         );
         console.log(""); //出力の見た目のために入れています
         console.log(chalk.red.bold("[SampleCode]"));
