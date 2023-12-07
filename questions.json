@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "problem": "Docker コンテナを起動するコマンドは？",
+    "sentence": "Docker コンテナを起動するコマンドは？",
     "choices": ["docker run", "docker up", "docker start"],
     "answer": "docker run",
     "sample_code": "docker run [OPTIONS] IMAGE [COMMAND] [ARG...]",
@@ -9,7 +9,7 @@
   },
   {
     "id": 1,
-    "problem": "Docker コンテナを停止するコマンドは？",
+    "sentence": "Docker コンテナを停止するコマンドは？",
     "choices": ["docker stop", "docker kill", "docker pause"],
     "answer": "docker stop",
     "sample_code": "docker stop CONTAINER",
@@ -17,7 +17,7 @@
   },
   {
     "id": 2,
-    "problem": "Docker コンテナを削除するコマンドは？",
+    "sentence": "Docker コンテナを削除するコマンドは？",
     "choices": ["docker rm", "docker stop", "docker kill"],
     "answer": "docker rm",
     "sample_code": "docker rm CONTAINER",
@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "problem": "ローカルに保存されているイメージの一覧を表示するコマンドは？",
+    "sentence": "ローカルに保存されているイメージの一覧を表示するコマンドは？",
     "choices": ["docker images", "docker ps", "docker ls"],
     "answer": "docker images",
     "sample_code": "docker images",
@@ -33,7 +33,7 @@
   },
   {
     "id": 4,
-    "problem": "実行中のコンテナの一覧を表示するコマンドは？",
+    "sentence": "実行中のコンテナの一覧を表示するコマンドは？",
     "choices": ["docker exec", "docker ps", "docker images"],
     "answer": "docker ps",
     "sample_code": "docker ps",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "problem": "Docker イメージを作成するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker イメージを作成するには、どのようなコマンドを実行しますか？",
     "choices": ["docker build", "docker create", "docker run"],
     "answer": "docker build",
     "sample_code": "docker build .",
@@ -49,7 +49,7 @@
   },
   {
     "id": 6,
-    "problem": "Docker イメージをタグ付けするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker イメージをタグ付けするには、どのようなコマンドを実行しますか？",
     "choices": ["docker tag", "docker rename", "docker copy"],
     "answer": "docker tag",
     "sample_code": "docker tag IMAGE TAG",
@@ -57,7 +57,7 @@
   },
   {
     "id": 7,
-    "problem": "Docker イメージを共有するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker イメージを共有するには、どのようなコマンドを実行しますか？",
     "choices": ["docker push", "docker publish", "docker share"],
     "answer": "docker push",
     "sample_code": "docker push REPOSITORY:TAG",
@@ -65,7 +65,7 @@
   },
   {
     "id": 8,
-    "problem": "Docker コンテナにファイルをコピーするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナにファイルをコピーするには、どのようなコマンドを実行しますか？",
     "choices": ["docker cp", "docker copy", "docker sync"],
     "answer": "docker cp",
     "sample_code": "docker cp SOURCE TARGET",
@@ -73,7 +73,7 @@
   },
   {
     "id": 9,
-    "problem": "Docker コンテナに環境変数を設定するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナに環境変数を設定するには、どのようなコマンドを実行しますか？",
     "choices": ["docker env", "docker set", "docker export"],
     "answer": "docker env",
     "sample_code": "docker env -e KEY=VALUE",
@@ -81,7 +81,7 @@
   },
   {
     "id": 10,
-    "problem": "Docker コンテナのログを確認するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナのログを確認するには、どのようなコマンドを実行しますか？",
     "choices": ["docker logs", "docker tail", "docker follow"],
     "answer": "docker logs",
     "sample_code": "docker logs CONTAINER",
@@ -89,7 +89,7 @@
   },
   {
     "id": 11,
-    "problem": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
     "choices": ["docker exec", "docker attach", "docker connect"],
     "answer": "docker exec",
     "sample_code": "docker exec CONTAINER COMMAND",
@@ -97,7 +97,7 @@
   },
   {
     "id": 12,
-    "problem": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
     "choices": [
       "docker network connect",
       "docker network join",
@@ -109,7 +109,7 @@
   },
   {
     "id": 13,
-    "problem": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
     "choices": ["docker split", "docker compose", "docker swarm"],
     "answer": "docker compose",
     "sample_code": "docker-compose up -d",
@@ -117,7 +117,7 @@
   },
   {
     "id": 14,
-    "problem": "Docker コンテナの状態を表示するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナの状態を表示するには、どのようなコマンドを実行しますか？",
     "choices": ["docker inspect", "docker info", "docker status"],
     "answer": "docker inspect",
     "sample_code": "docker inspect CONTAINER",
@@ -125,7 +125,7 @@
   },
   {
     "id": 15,
-    "problem": "Docker コンテナにポートをマッピングする際に、コンテナの外部ポートを指定するには、どのようなオプションを指定しますか？",
+    "sentence": "Docker コンテナにポートをマッピングする際に、コンテナの外部ポートを指定するには、どのようなオプションを指定しますか？",
     "choices": ["-p", "--publish", "--expose"],
     "answer": "-p",
     "sample_code": "docker run -p 8080:80 IMAGE",
@@ -133,7 +133,7 @@
   },
   {
     "id": 16,
-    "problem": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
     "choices": ["docker exec", "docker attach", "docker connect"],
     "answer": "docker exec",
     "sample_code": "docker exec CONTAINER COMMAND",
@@ -141,7 +141,7 @@
   },
   {
     "id": 17,
-    "problem": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
     "choices": [
       "docker network connect",
       "docker network join",
@@ -153,7 +153,7 @@
   },
   {
     "id": 18,
-    "problem": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
     "choices": ["docker split", "docker compose", "docker swarm"],
     "answer": "docker compose",
     "sample_code": "docker-compose up -d",
@@ -161,7 +161,7 @@
   },
   {
     "id": 19,
-    "problem": "Docker デーモンの状態を確認するには、どのようなコマンドを実行しますか？",
+    "sentence": "Docker デーモンの状態を確認するには、どのようなコマンドを実行しますか？",
     "choices": ["docker inspect", "docker info", "docker status"],
     "answer": "docker info",
     "sample_code": "docker info",

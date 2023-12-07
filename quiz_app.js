@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const questionslist = JSON.parse(
-  await readFile(`${__dirname}//questions.json`),
+  await readFile(`${__dirname}//questions.json`)
 );
 const questions = [];
 
@@ -16,8 +16,10 @@ class QuizApp {
   constructor() {
     (async () => {
       questionslist.forEach((question) => {
-        questions.push(new Question(question));
+        const questionObject = new Question(question);
+        questions.push(questionObject);
       });
+      this.questions = questions;
       this.maxQuestions = 20;
       this.numberOfQuestion = this.setNumberOfQuestion();
       this.questionIds = await this.setRandomQuestionIds();
@@ -73,16 +75,14 @@ class QuizApp {
         const question = {
           type: "select",
           name: "question",
-          message: dockerQuestion.problem,
+          message: dockerQuestion.sentence,
           choices: this.choiceShuffle(dockerQuestion.choices),
         };
         const answer = await enquirer.prompt(question);
-        if (answer.question === dockerQuestion.answer) {
-          console.log("正解です！！");
-          correctAnswer += 1;
-        } else {
-          console.log("残念！！不正解！！");
-        }
+        correctAnswer += await this.questions[dockerQuestion.id].isCorrect(
+          answer.question,
+          dockerQuestion
+        );
         console.log(""); //出力の見た目のために入れています
         console.log(chalk.red.bold("[SampleCode]"));
         console.log(chalk.white.bold.bgRed(dockerQuestion.sample_code));
