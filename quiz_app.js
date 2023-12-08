@@ -79,7 +79,7 @@ class QuizApp {
           choices: this.choiceShuffle(dockerQuestion.choices),
         };
         const answer = await enquirer.prompt(question);
-        if (this.questions[dockerQuestion.id].isCorrect(answer.question)){
+        if (this.questions[dockerQuestion.id].isCorrect(answer.question)) {
           console.log("正解です！！");
           correctAnswer += 1;
         } else {
