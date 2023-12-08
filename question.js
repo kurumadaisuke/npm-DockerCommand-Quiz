@@ -8,14 +8,8 @@ class Question {
     this.explanation = question.explanation;
   }
 
-  isCorrect(answer, dockerQuestion) {
-    if (answer === dockerQuestion.answer) {
-      console.log("正解です！！");
-      return 1;
-    } else {
-      console.log("残念！！不正解！！");
-    }
-    return 0;
+  isCorrect(answer) {
+    return answer === this.answer;
   }
 }
 

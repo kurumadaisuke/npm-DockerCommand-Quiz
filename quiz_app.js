@@ -79,10 +79,12 @@ class QuizApp {
           choices: this.choiceShuffle(dockerQuestion.choices),
         };
         const answer = await enquirer.prompt(question);
-        correctAnswer += await this.questions[dockerQuestion.id].isCorrect(
-          answer.question,
-          dockerQuestion,
-        );
+        if (this.questions[dockerQuestion.id].isCorrect(answer.question)){
+          console.log("正解です！！");
+          correctAnswer += 1;
+        } else {
+          console.log("残念！！不正解！！");
+        }
         console.log(""); //出力の見た目のために入れています
         console.log(chalk.red.bold("[SampleCode]"));
         console.log(chalk.white.bold.bgRed(dockerQuestion.sample_code));
@@ -97,12 +99,7 @@ class QuizApp {
   };
 
   generateQuestionIds = (ids) => {
-    const questionIds = [];
-    ids.forEach(function (id) {
-      const Index = questions.findIndex((data) => data.id === id);
-      questionIds.push(questions[Index]);
-    });
-    return questionIds;
+    return ids.map((id) => questions.find((data) => data.id === id));
   };
 
   choiceShuffle = (choices) => {
