@@ -1,0 +1,31 @@
+{
+  "name": "docker_quiz_app",
+  "description": "This is an app that quizzes you on Docker commands. We have prepared a Docker command quiz with a total of 20 questions.",
+  "version": "0.1.4",
+  "main": "main.js",
+  "bin": {
+    "docker_quiz_app": "./main.js"
+  },
+  "scripts": {
+    "fix": "prettier --write . && eslint --fix .",
+    "lint": "prettier --check . && eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kurumadaisuke/npm-DockerCommand-Quiz"
+  },
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "prettier": "^2.8.8"
+  },
+  "type": "module",
+  "dependencies": {
+    "enquirer": "^2.4.1"
+  },
+  "keywords": [
+    "Docker"
+  ],
+  "author": "kurumadaisuke",
+  "license": "MIT"
+}

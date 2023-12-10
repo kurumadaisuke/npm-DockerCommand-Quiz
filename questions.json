@@ -1,0 +1,170 @@
+[
+  {
+    "id": 0,
+    "sentence": "Docker コンテナを起動するコマンドは？",
+    "choices": ["docker run", "docker up", "docker start"],
+    "answer": "docker run",
+    "sample_code": "docker run [OPTIONS] IMAGE [COMMAND] [ARG...]",
+    "explanation": "OPTIONS には、イメージの指定、ポートマッピング、環境変数の設定、ボリュームのマウント、ネットワークの接続など、さまざまなオプションを指定できます。\nIMAGE には、起動するコンテナのイメージを指定します。\nCOMMAND には、コンテナの起動時に実行するコマンドを指定します。\nARG には、COMMAND に渡す引数を指定します。"
+  },
+  {
+    "id": 1,
+    "sentence": "Docker コンテナを停止するコマンドは？",
+    "choices": ["docker stop", "docker kill", "docker pause"],
+    "answer": "docker stop",
+    "sample_code": "docker stop CONTAINER",
+    "explanation": "CONTAINER には、停止するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 2,
+    "sentence": "Docker コンテナを削除するコマンドは？",
+    "choices": ["docker rm", "docker stop", "docker kill"],
+    "answer": "docker rm",
+    "sample_code": "docker rm CONTAINER",
+    "explanation": "CONTAINER には、削除するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 3,
+    "sentence": "ローカルに保存されているイメージの一覧を表示するコマンドは？",
+    "choices": ["docker images", "docker ps", "docker ls"],
+    "answer": "docker images",
+    "sample_code": "docker images",
+    "explanation": "docker images で、ローカルに保存されているイメージの一覧を表示します。"
+  },
+  {
+    "id": 4,
+    "sentence": "実行中のコンテナの一覧を表示するコマンドは？",
+    "choices": ["docker exec", "docker ps", "docker images"],
+    "answer": "docker ps",
+    "sample_code": "docker ps",
+    "explanation": "docker ps で、実行中のコンテナの一覧を表示します。"
+  },
+  {
+    "id": 5,
+    "sentence": "Docker イメージを作成するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker build", "docker create", "docker run"],
+    "answer": "docker build",
+    "sample_code": "docker build .",
+    "explanation": "カレントディレクトりに存在する Dockerfile を指定してイメージを作成します。"
+  },
+  {
+    "id": 6,
+    "sentence": "Docker イメージをタグ付けするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker tag", "docker rename", "docker copy"],
+    "answer": "docker tag",
+    "sample_code": "docker tag IMAGE TAG",
+    "explanation": "`IMAGE には、タグを付けるイメージの名前または ID を指定します。\nTAG には、イメージに付けるタグを指定します。"
+  },
+  {
+    "id": 7,
+    "sentence": "Docker イメージを共有するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker push", "docker publish", "docker share"],
+    "answer": "docker push",
+    "sample_code": "docker push REPOSITORY:TAG",
+    "explanation": "REPOSITORY には、イメージを共有するリポジトリ名を指定します。\nTAG には、イメージに付けるタグを指定します。"
+  },
+  {
+    "id": 8,
+    "sentence": "Docker コンテナにファイルをコピーするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker cp", "docker copy", "docker sync"],
+    "answer": "docker cp",
+    "sample_code": "docker cp SOURCE TARGET",
+    "explanation": "SOURCE には、コンテナからホストまたはホストからコンテナにコピーするファイルまたはディレクトリを指定します。\nTARGET には、コピー先のファイルまたはディレクトリを指定します。"
+  },
+  {
+    "id": 9,
+    "sentence": "Docker コンテナに環境変数を設定するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker env", "docker set", "docker export"],
+    "answer": "docker env",
+    "sample_code": "docker env -e KEY=VALUE",
+    "explanation": "KEY には、環境変数の名前を指定します。\nVALUE には、環境変数の値を指定します。"
+  },
+  {
+    "id": 10,
+    "sentence": "Docker コンテナのログを確認するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker logs", "docker tail", "docker follow"],
+    "answer": "docker logs",
+    "sample_code": "docker logs CONTAINER",
+    "explanation": "CONTAINER には、ログを確認するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 11,
+    "sentence": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker exec", "docker attach", "docker connect"],
+    "answer": "docker exec",
+    "sample_code": "docker exec CONTAINER COMMAND",
+    "explanation": "CONTAINER には、アクセスするコンテナの名前または ID を指定します。\nCOMMAND には、コンテナで実行するコマンドを指定します。"
+  },
+  {
+    "id": 12,
+    "sentence": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
+    "choices": [
+      "docker network connect",
+      "docker network join",
+      "docker network create"
+    ],
+    "answer": "docker network connect",
+    "sample_code": "docker network connect NETWORK CONTAINER",
+    "explanation": "NETWORK には、接続するネットワークの名前を指定します。\nCONTAINER には、接続するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 13,
+    "sentence": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker split", "docker compose", "docker swarm"],
+    "answer": "docker compose",
+    "sample_code": "docker-compose up -d",
+    "explanation": "-d オプションを指定すると、コンテナをバックグラウンドで起動します。"
+  },
+  {
+    "id": 14,
+    "sentence": "Docker コンテナの状態を表示するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker inspect", "docker info", "docker status"],
+    "answer": "docker inspect",
+    "sample_code": "docker inspect CONTAINER",
+    "explanation": "`CONTAINER には、状態を確認するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 15,
+    "sentence": "Docker コンテナにポートをマッピングする際に、コンテナの外部ポートを指定するには、どのようなオプションを指定しますか？",
+    "choices": ["-p", "--publish", "--expose"],
+    "answer": "-p",
+    "sample_code": "docker run -p 8080:80 IMAGE",
+    "explanation": "-p オプションで、コンテナの外部ポートを指定します。"
+  },
+  {
+    "id": 16,
+    "sentence": "Docker コンテナにアクセスするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker exec", "docker attach", "docker connect"],
+    "answer": "docker exec",
+    "sample_code": "docker exec CONTAINER COMMAND",
+    "explanation": "`CONTAINER には、アクセスするコンテナの名前または ID を指定します。\nCOMMAND には、コンテナで実行するコマンドを指定します。"
+  },
+  {
+    "id": 17,
+    "sentence": "Docker コンテナをネットワークに接続するには、どのようなコマンドを実行しますか？",
+    "choices": [
+      "docker network connect",
+      "docker network join",
+      "docker network create"
+    ],
+    "answer": "docker network connect",
+    "sample_code": "docker network connect NETWORK CONTAINER",
+    "explanation": "NETWORK には、接続するネットワークの名前を指定します。\nCONTAINER には、接続するコンテナの名前または ID を指定します。"
+  },
+  {
+    "id": 18,
+    "sentence": "Docker コンテナを分割して複数のコンテナにするには、どのようなコマンドを実行しますか？",
+    "choices": ["docker split", "docker compose", "docker swarm"],
+    "answer": "docker compose",
+    "sample_code": "docker-compose up -d",
+    "explanation": "`-d オプションを指定すると、コンテナをバックグラウンドで起動します。"
+  },
+  {
+    "id": 19,
+    "sentence": "Docker デーモンの状態を確認するには、どのようなコマンドを実行しますか？",
+    "choices": ["docker inspect", "docker info", "docker status"],
+    "answer": "docker info",
+    "sample_code": "docker info",
+    "explanation": "Docker デーモンの状態を表示します。"
+  }
+]
